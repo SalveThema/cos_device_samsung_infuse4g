@@ -1,5 +1,5 @@
 # Infuse is a GSM phone
-$(call inherit-product, vendor/cm/config/gsm.mk)
+$(call inherit-product, vendor/cos/config/gsm.mk)
 
 # Release name
 PRODUCT_RELEASE_NAME := Infuse4G
@@ -7,14 +7,17 @@ PRODUCT_RELEASE_NAME := Infuse4G
 TARGET_BOOTANIMATION_NAME := 480
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product, vendor/cos/config/common_full_phone.mk)
+
+# Get the long list of APNs
+PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
 # Inherit device configuration
 $(call inherit-product, device/samsung/infuse4g/full_infuse4g.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := infuse4g
-PRODUCT_NAME := cm_infuse4g
+PRODUCT_NAME := cos_infuse4g
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SGH-I997
 
